@@ -1,0 +1,121 @@
+.upperBar {
+    height: 42px;
+    display: flex;
+    justify-content: space-between;
+    align-items: flex-start;
+}
+
+.user {
+    width: 40px;
+    height: 40px;
+    margin-right: 10px;
+    filter: drop-shadow(0px 0px 2px rgba(0, 0, 0, 0.25));
+    float: left;
+}
+
+.user-name {
+    color: #4F43D1;
+    display: block;
+    float: left;
+    font-size: 20px;
+}
+
+.searcher {
+    display: flex;
+    flex-direction: column;
+}
+
+form {
+    width: 220px;
+    z-index: 6;
+}
+
+.field {
+    width: 100%;
+    height: 34px;
+    z-index: 4;
+    border-radius: 9px;
+    border: solid 0.4px rgba(148, 144, 144, 0.253);
+    background-color: #fff;
+}
+
+input {
+    width: 80%;
+    height: 100%;
+    float: left;
+    color: #4F43D1;
+    border-radius: 9px;
+    border: none;
+    outline: 0;
+    font-weight: 600;
+    background-color: #fff;
+}
+
+.results {
+    width: 100%;
+    float: left;
+    margin-top: 3px;
+    z-index: -1;
+    border-radius: 7px;
+    padding: 10px 10px 10px 10px;
+    background-color: #fff;
+}
+
+.logo {
+    width: 100%;
+    color: #4F43D1;
+    text-align: end;
+    font-style: italic;
+    font-size: 30px;
+}
+
+.logo-container {
+    width: 25%;
+    display: block;
+}
+
+.user-container {
+    width: 30%;
+    display: flex;
+    align-items: center;
+    float: left;
+}
+
+.search-icon {
+    width: 15px;
+}
+
+hr {
+    border-top: 1px solid #3d3d3d6b;
+    margin: 7px 0px;
+}
+
+.result-item {
+    width: 100%;
+    padding: 5px;
+    border: none;
+    text-align: left;
+    border-radius: 4px;
+    cursor: pointer;
+    background-color: #fff;
+}
+
+.result-item h5 {
+    font-size: 14px;
+    color: #4F43D1;
+}
+
+.result-item h6 {
+    font-size: 12px;
+    color: #3D3D3D;
+}
+
+.result-item:hover {
+    background-color: #e4e4e4;
+}
+
+.btn {
+    width: 100%;
+    height: 100%;
+    position:sticky;
+}
