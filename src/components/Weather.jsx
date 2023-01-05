@@ -27,20 +27,20 @@ const Weather = ({ weather, selectedCity }) => {
 
   // This function returns an image with the current icon
   const setWeatherIcon = (icon) => {
-    let res = '';
+    let res = 'nothing';
     let pattern1 = /n/;
     let pattern2 = /02/;
     let pattern3 = /10/;
     let pattern4 = /01/;
 
-    if(!pattern2.test(icon) && !pattern3.test(icon) && !pattern4.test(icon)){
+    if(pattern2.test(icon) && pattern3.test(icon) && pattern4.test(icon)){
       if(pattern1.test(icon) && icon != 'nothing') {
         res = icon.replace("n", "d");
       }
     } else {
       res = icon;
     }
-
+     console.log(res);
     return <img className="weather-icon" src={`icons/weather-icons/${res}.svg`} />
   }
 
@@ -76,7 +76,6 @@ const Weather = ({ weather, selectedCity }) => {
           {/* Weather */}
           
           <div className='weather weather-box'>
-              
               <h1>Weather</h1>
               <h2>How’s the weather?</h2>
               <div className='icon-container'>
@@ -86,6 +85,11 @@ const Weather = ({ weather, selectedCity }) => {
                   : 
                   setWeatherIcon('nothing')
                 }
+                {/* {weather != undefined ? 
+                  console.log(weather.weather[0].icon) 
+                  : 
+                  console.log('nothing')
+                } */}
               </div>
               {weather != undefined ? 
               <>
