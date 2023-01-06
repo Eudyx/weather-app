@@ -22,10 +22,14 @@ const UpperBar = ({ setSelectedCity }) => {
   }
 
   return (
+    <>
+      <h1 className='logo upper-logo'>
+          Weather App
+      </h1>
     <div className='upperBar'>
     <div className='user-container'>
         <img className='user' src='icons/user.svg' alt='user image' />
-        <h1 className='user-name'>Eudyx</h1>
+        <h1 className='user-name'>User Name</h1>
     </div>
 
     <form>
@@ -57,11 +61,12 @@ const UpperBar = ({ setSelectedCity }) => {
     </form>
       
       <div className='logo-container'>
-        <h1 className='logo'>
+        <h1 className='logo side-logo'>
             Weather App
         </h1>
       </div>
     </div>
+    </>
   )
 }
 

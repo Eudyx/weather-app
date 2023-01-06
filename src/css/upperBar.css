@@ -74,6 +74,10 @@ input {
     display: block;
 }
 
+.upper-logo {
+    display: none;
+}
+
 .user-container {
     width: 30%;
     display: flex;
