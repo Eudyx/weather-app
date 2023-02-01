@@ -102,7 +102,8 @@ const Weather = ({ weather, selectedCity }) => {
                   }°F</h3>}
                 </div> 
               </>
-              : null}
+                : 
+              <p className="weather-temp" >00.0°C</p>}
               <div className="today" >Today</div>
           </div>
           {/* Weather */}
@@ -129,7 +130,7 @@ const Weather = ({ weather, selectedCity }) => {
                   <h2>{weather.weather[0].description}</h2>
                 </div>
                 : 
-                null
+                <div style={{width: "100%", height: "98%"}} ></div>
               }
               <div className="clouds-circle" >
               {weather != undefined ? 
