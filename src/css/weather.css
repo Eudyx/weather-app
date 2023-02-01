@@ -186,6 +186,7 @@
     width: 60%;
     position: relative;
     top: 8px;
+    height: unset!important;
 }
 
 .wind {
