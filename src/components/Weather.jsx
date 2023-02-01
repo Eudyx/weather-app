@@ -1,4 +1,6 @@
 import { useEffect, useState } from "react"
+import { useClock } from "../hooks/useClock";
+import { useWeatherIcon } from "../hooks/useWeatherIcon";
 
 const Weather = ({ weather, selectedCity }) => {
   // Date objects for the clock
@@ -6,7 +8,8 @@ const Weather = ({ weather, selectedCity }) => {
   const minutes = initialHour.getMinutes() <= '9' ? '0' + initialHour.getMinutes() : initialHour.getMinutes();
   
   const [side, setSide] = useState(true);
-  const [hour, setHour] = useState(initialHour.getHours() + ':' + minutes);
+  const [hour, interval] = useClock(initialHour.getHours() + ':' + minutes);
+  const [setWeatherIcon] = useWeatherIcon();
 
   // Array of days
   const days = ["Sunday", "Monday", "Tuesday", "Wednesday", "Thursday", "Friday", "Saturday"];
@@ -16,39 +19,9 @@ const Weather = ({ weather, selectedCity }) => {
     return !side ? {transform: "translate(0, 0)"} : {transform: "translate(21px, 0)"};
   }
 
-  // This function returns your device's current hour
-  const clock = () => {
-    const date = new Date();
-    let h = date.getHours() + ':';
-    let m = date.getMinutes() <= '9' ? '0' + date.getMinutes() : date.getMinutes();
-    
-    return h + m;
-  }
-
-  // This function returns an image with the current icon
-  const setWeatherIcon = (icon) => {
-    let res = 'nothing';
-    let pattern1 = /n/;
-    let pattern2 = /02/;
-    let pattern3 = /10/;
-    let pattern4 = /01/;
-
-    if(pattern2.test(icon) && pattern3.test(icon) && pattern4.test(icon)){
-      if(pattern1.test(icon) && icon != 'nothing') {
-        res = icon.replace("n", "d");
-      }
-    } else {
-      res = icon;
-    }
-     console.log(res);
-    return <img className="weather-icon" src={`icons/weather-icons/${res}.svg`} />
-  }
-
   useEffect(() => {
     // setInterval for the clock
-    setInterval(() => {
-      setHour(clock());
-    }, 1000)
+    interval();
   }, []);
 
   
@@ -85,11 +58,6 @@ const Weather = ({ weather, selectedCity }) => {
                   : 
                   setWeatherIcon('nothing')
                 }
-                {/* {weather != undefined ? 
-                  console.log(weather.weather[0].icon) 
-                  : 
-                  console.log('nothing')
-                } */}
               </div>
               {weather != undefined ? 
               <>
@@ -189,8 +157,6 @@ const Weather = ({ weather, selectedCity }) => {
             </div>
           </div>
         </div>
-        {/* <div className="by-hour">
-        </div> */}
     </div>
   )
 }
